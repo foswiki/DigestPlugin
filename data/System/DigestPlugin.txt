@@ -1,0 +1,43 @@
+%META:TOPICINFO{author="ProjectContributor" date="1224862720" format="1.1" version="$Rev$"}%
+---+!! %TOPIC%
+<!--
+One line description, required for extensions repository catalog.
+   * Set SHORTDESCRIPTION = Calculate message digest, i.e. MD5
+-->
+%SHORTDESCRIPTION%
+
+---++ Examples
+<noautolink>
+| *You type* | *You should get* | *You get* |
+| %<nop>DIGEST{"Hello World"}% | | %DIGEST{"Hello World"}% |
+| %<nop>DIGEST{"%<nop>DIGEST{"Hello World"}%"}% | | %DIGEST{"%DIGEST{"Hello World"}%"}% |
+| %<nop>DIGEST{"Hello World" output="b64"}% | | %DIGEST{"Hello World" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-1"}% | | %DIGEST{"Hello World" type"SHA-1"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-1" output="b64"}% | | %DIGEST{"Hello World" type"SHA-1" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-256"}% | | %DIGEST{"Hello World" type"SHA-256"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-256" output="b64"}% | | %DIGEST{"Hello World" type"SHA-256" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="CRC"}% | | %DIGEST{"Hello World" type"CRC"}% |
+| %<nop>DIGEST{"Hello World" type="CRC" output="b64"}% | | %DIGEST{"Hello World" type"CRC" output="b64"}% |
+| %<nop>DIGEST{"$percntWIKINAME$percnt"}% | | %DIGEST{"$percntWIKINAME$percnt"}% |
+</noautolink>
+
+
+---++ Installation Instructions
+%$INSTALL_INSTRUCTIONS%
+
+---++ Plugin Info
+
+Sponsored by <a href="http://www.trivadis.com">Trivadis AG</a>
+
+|  Plugin Author(s): | Foswiki:Main/MichaelDaum |
+|  Copyright &copy;: | 2008-2009, Michael Daum http://michaeldaumconsulting.com |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  17 Nov 2009 | initial public release |
+|  23 Apr 2008 | converted to foswiki plugin |
+|  24 Oct 2008 | initial version |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Plugin Home: | Foswiki:Extensions/%TOPIC% |
+|  Support: | Foswiki:Extensions/%TOPIC% |
