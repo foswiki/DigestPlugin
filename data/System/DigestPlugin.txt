@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="ProjectContributor" date="1224862720" format="1.1" version="$Rev$"}%
+%META:TOPICINFO{author="ProjectContributor" date="1258465095" format="1.1" version="1.2"}%
 ---+!! %TOPIC%
 <!--
 One line description, required for extensions repository catalog.
@@ -9,16 +9,16 @@ One line description, required for extensions repository catalog.
 ---++ Examples
 <noautolink>
 | *You type* | *You should get* | *You get* |
-| %<nop>DIGEST{"Hello World"}% | | %DIGEST{"Hello World"}% |
-| %<nop>DIGEST{"%<nop>DIGEST{"Hello World"}%"}% | | %DIGEST{"%DIGEST{"Hello World"}%"}% |
-| %<nop>DIGEST{"Hello World" output="b64"}% | | %DIGEST{"Hello World" output="b64"}% |
-| %<nop>DIGEST{"Hello World" type="SHA-1"}% | | %DIGEST{"Hello World" type"SHA-1"}% |
-| %<nop>DIGEST{"Hello World" type="SHA-1" output="b64"}% | | %DIGEST{"Hello World" type"SHA-1" output="b64"}% |
-| %<nop>DIGEST{"Hello World" type="SHA-256"}% | | %DIGEST{"Hello World" type"SHA-256"}% |
-| %<nop>DIGEST{"Hello World" type="SHA-256" output="b64"}% | | %DIGEST{"Hello World" type"SHA-256" output="b64"}% |
-| %<nop>DIGEST{"Hello World" type="CRC"}% | | %DIGEST{"Hello World" type"CRC"}% |
-| %<nop>DIGEST{"Hello World" type="CRC" output="b64"}% | | %DIGEST{"Hello World" type"CRC" output="b64"}% |
-| %<nop>DIGEST{"$percntWIKINAME$percnt"}% | | %DIGEST{"$percntWIKINAME$percnt"}% |
+| %<nop>DIGEST{"Hello World"}% | b10a8db164e0754105b7a99be72e3fe5 | %DIGEST{"Hello World"}% |
+| %<nop>DIGEST{"%<nop>DIGEST{"Hello World"}%"}% | 3935a6184c654e7a05a4e42c1fb17def | %DIGEST{"%DIGEST{"Hello World"}%"}% |
+| %<nop>DIGEST{"Hello World" output="b64"}% | sQqNsWTgdUEFt6mb5y4/5Q | %DIGEST{"Hello World" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-1"}% | e5aef6287d9590ef579b5b1a6c1670a0 | %DIGEST{"Hello World" type"SHA-1"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-1" output="b64"}% | 5a72KH2VkO9Xm1sabBZwoA | %DIGEST{"Hello World" type"SHA-1" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-256"}% | 24d5ab7a16112f102f2d73bf88ea3d1e | %DIGEST{"Hello World" type"SHA-256"}% |
+| %<nop>DIGEST{"Hello World" type="SHA-256" output="b64"}% | JNWrehYRLxAvLXO/iOo9Hg | %DIGEST{"Hello World" type"SHA-256" output="b64"}% |
+| %<nop>DIGEST{"Hello World" type="CRC"}% | bf104755f4580c936f54928f266855af | %DIGEST{"Hello World" type"CRC"}% |
+| %<nop>DIGEST{"Hello World" type="CRC" output="b64"}% | vxBHVfRYDJNvVJKPJmhVrw | %DIGEST{"Hello World" type"CRC" output="b64"}% |
+| %<nop>DIGEST{"$percntWIKINAME$percnt"}% | 28d0308c9da49d92dbdb7880d2c5ad00 | %DIGEST{"$percntWIKINAME$percnt"}% |
 </noautolink>
 
 
