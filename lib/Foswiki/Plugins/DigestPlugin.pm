@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# Copyright (C) 2008-2009 MichaelDaum http://michaeldaumconsulting.com
+# Copyright (C) 2008-2014 MichaelDaum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -13,28 +13,24 @@
 # GNU General Public License for more details, published at
 # http://www.gnu.org/copyleft/gpl.html
 
-
 package Foswiki::Plugins::DigestPlugin;
 
 use strict;
-require Foswiki::Func;    # The plugins API
-require Foswiki::Plugins; # For the API version
+use warnings;
 
-use vars qw(
-  $VERSION $RELEASE $SHORTDESCRIPTION $NO_PREFS_IN_TOPIC
-  $baseWeb $baseTopic $factory
-);
+use Foswiki::Func ();
+use Digest ();
 
-$VERSION = '$Rev$';
-$RELEASE = '1.0';
-$SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5';
-$NO_PREFS_IN_TOPIC = 1;
+our $VERSION = '1.01';
+our $RELEASE = '1.01';
+our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5';
+our $NO_PREFS_IN_TOPIC = 1;
 
-use constant DEBUG => 0; # toggle me
+use constant TRACE => 0; # toggle me
 
 ###############################################################################
 sub writeDebug {
-  return unless DEBUG;
+  return unless TRACE;
   print STDERR "- DigestPlugin - " . $_[0] . "\n";
   #Foswiki::Func::writeDebug("- DigestPlugin - $_[0]");
 }
@@ -42,10 +38,8 @@ sub writeDebug {
 
 ###############################################################################
 sub initPlugin {
-  ($baseTopic, $baseWeb) = @_;
 
   Foswiki::Func::registerTagHandler('DIGEST', \&handleDIGEST);
-  $factory = undef;
 
   return 1;
 }
@@ -59,10 +53,7 @@ sub handleDIGEST {
   my $output = $params->{output} || 'hex';
 
   my $digest;
-  unless ($factory) {
-    require Digest;
-    $factory = Digest->new($type);
-  }
+  my $factory = Digest->new($type);
 
   $data = Foswiki::Func::expandCommonVariables($data, $topic, $web)
     if expandVariables(\$data, $web, $topic);
@@ -96,7 +87,7 @@ sub expandVariables {
       #writeDebug("expanding $key->$params{$key}");
     }
   }
-  $found = 1 if $$text =~ s/\$percnt/\%/go;
+  $found = 1 if $$text =~ s/\$perce?nt/\%/go;
   $found = 1 if $$text =~ s/\$nop//g;
   $found = 1 if $$text =~ s/\$n/\n/go;
   $found = 1 if $$text =~ s/\$t\b/\t/go;
