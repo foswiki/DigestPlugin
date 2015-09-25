@@ -22,7 +22,7 @@ use Foswiki::Func ();
 use Digest ();
 
 our $VERSION = '1.01';
-our $RELEASE = '23 Apr 2015';
+our $RELEASE = '23 Apr 2014';
 our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5';
 our $NO_PREFS_IN_TOPIC = 1;
 
