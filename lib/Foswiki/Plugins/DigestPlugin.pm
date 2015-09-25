@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# Copyright (C) 2008-2014 MichaelDaum http://michaeldaumconsulting.com
+# Copyright (C) 2008-2015 MichaelDaum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@ use Foswiki::Func ();
 use Digest ();
 
 our $VERSION = '1.01';
-our $RELEASE = '1.01';
+our $RELEASE = '23 Apr 2015';
 our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5';
 our $NO_PREFS_IN_TOPIC = 1;
 

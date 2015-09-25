@@ -1,9 +1,5 @@
 %META:TOPICINFO{author="ProjectContributor" date="1258465095" format="1.1" version="1.2"}%
 ---+!! %TOPIC%
-<!--
-One line description, required for extensions repository catalog.
-   * Set SHORTDESCRIPTION = Calculate message digest, i.e. MD5
--->
 %SHORTDESCRIPTION%
 
 ---++ Examples
@@ -25,20 +21,27 @@ One line description, required for extensions repository catalog.
 ---++ Installation Instructions
 %$INSTALL_INSTRUCTIONS%
 
----++ Plugin Info
+---++ Dependencies
+%$DEPENDENCIES%
 
-Sponsored by <a href="http://www.trivadis.com">Trivadis AG</a>
+---++ Change History
 
-|  Plugin Author(s): | Foswiki:Main/MichaelDaum |
-|  Copyright &copy;: | 2008-2014, Michael Daum http://michaeldaumconsulting.com |
-|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
-|  Release: | %$RELEASE% |
-|  Version: | %$VERSION% |
-|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+%TABLE{columnwidths="7em" tablewidth="100%"}%
 |  23 Apr 2014 | fixed use of digest of different type on the same page |
 |  17 Nov 2009 | initial public release |
 |  23 Apr 2008 | converted to foswiki plugin |
 |  24 Oct 2008 | initial version |
-|  Dependencies: | %$DEPENDENCIES% |
-|  Plugin Home: | Foswiki:Extensions/%TOPIC% |
-|  Support: | Foswiki:Extensions/%TOPIC% |
+
+<!--
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+
+%META:FORM{name="PackageForm"}%
+%META:FIELD{name="Author" title="Author" value="Foswiki:Main/MichaelDaum"}%
+%META:FIELD{name="Copyright" title="Copyright" value="2008-2015, Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Home" title="Home" value="Foswiki:Extensions/%TOPIC%"}%
+%META:FIELD{name="License" title="License" value="[[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]]"}%
+%META:FIELD{name="Release" title="Release" value="%$RELEASE%"}%
+%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/DigestPlugin"}%
+%META:FIELD{name="Support" title="Support" value="Foswiki:Extensions/%TOPIC%"}%
+%META:FIELD{name="Version" title="Version" value="%$VERSION%"}%
