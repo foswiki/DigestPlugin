@@ -1,6 +1,6 @@
-%META:TOPICINFO{author="ProjectContributor" date="1258465095" format="1.1" version="1.2"}%
+%META:TOPICINFO{author="ProjectContributor" date="1258465095" format="1.1" version="1"}%
 ---+!! %TOPIC%
-%SHORTDESCRIPTION%
+%FORMFIELD{"Description"}%
 
 ---++ Examples
 <noautolink>
@@ -15,6 +15,7 @@
 | %<nop>DIGEST{"Hello World" type="CRC"}% | bf104755f4580c936f54928f266855af | %DIGEST{"Hello World" type"CRC"}% |
 | %<nop>DIGEST{"Hello World" type="CRC" output="b64"}% | vxBHVfRYDJNvVJKPJmhVrw | %DIGEST{"Hello World" type"CRC" output="b64"}% |
 | %<nop>DIGEST{"$percntWIKINAME$percnt"}% | 28d0308c9da49d92dbdb7880d2c5ad00 | %DIGEST{"$percntWIKINAME$percnt"}% |
+| %<nop>BASE64{"Hello World"}% | SGVsbG8gV29ybGQ= | %BASE64{"Hello World"}% |
 </noautolink>
 
 
@@ -27,18 +28,16 @@
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+|  08 Mar 2016 | added BASE64 macro |
 |  23 Apr 2014 | fixed use of digest of different type on the same page |
 |  17 Nov 2009 | initial public release |
 |  23 Apr 2008 | converted to foswiki plugin |
 |  24 Oct 2008 | initial version |
 
-<!--
-   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
--->
-
 %META:FORM{name="PackageForm"}%
-%META:FIELD{name="Author" title="Author" value="Foswiki:Main/MichaelDaum"}%
-%META:FIELD{name="Copyright" title="Copyright" value="2008-2015, Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Author" title="Author" value="Michael Daum"}%
+%META:FIELD{name="Copyright" title="Copyright" value="2008-2016, Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
 %META:FIELD{name="Home" title="Home" value="Foswiki:Extensions/%TOPIC%"}%
 %META:FIELD{name="License" title="License" value="[[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]]"}%
 %META:FIELD{name="Release" title="Release" value="%$RELEASE%"}%

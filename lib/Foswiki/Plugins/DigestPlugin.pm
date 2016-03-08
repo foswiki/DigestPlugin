@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# Copyright (C) 2008-2015 MichaelDaum http://michaeldaumconsulting.com
+# Copyright (C) 2008-2016 MichaelDaum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -20,10 +20,12 @@ use warnings;
 
 use Foswiki::Func ();
 use Digest ();
+use MIME::Base64 ();
+use Encode ();
 
-our $VERSION = '1.01';
-our $RELEASE = '23 Apr 2014';
-our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5';
+our $VERSION = '2.00';
+our $RELEASE = '08 Mar 2016';
+our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5 or BASE64';
 our $NO_PREFS_IN_TOPIC = 1;
 
 use constant TRACE => 0; # toggle me
@@ -40,6 +42,7 @@ sub writeDebug {
 sub initPlugin {
 
   Foswiki::Func::registerTagHandler('DIGEST', \&handleDIGEST);
+  Foswiki::Func::registerTagHandler('BASE64', \&handleBASE64);
 
   return 1;
 }
@@ -74,6 +77,24 @@ sub handleDIGEST {
 
   return $digest;
 }
+
+###############################################################################
+sub handleBASE64 {
+  my ($session, $params, $topic, $web) = @_;
+
+  my $data = $params->{_DEFAULT} || '';
+
+  $data = Foswiki::Func::expandCommonVariables($data, $topic, $web)
+    if expandVariables(\$data, $web, $topic);
+
+  $data = Encode::encode($Foswiki::cfg{Site}{CharSet}, $data);
+  $data = MIME::Base64::encode($data);
+
+  $data =~ s/\n//g;
+
+  return $data;
+}
+
 
 ###############################################################################
 sub expandVariables {
