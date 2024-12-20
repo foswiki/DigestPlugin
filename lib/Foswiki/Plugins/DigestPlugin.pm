@@ -1,6 +1,6 @@
 # Plugin for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# Copyright (C) 2008-2016 MichaelDaum http://michaeldaumconsulting.com
+# Copyright (C) 2008-2024 MichaelDaum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,6 +15,14 @@
 
 package Foswiki::Plugins::DigestPlugin;
 
+=begin TML
+
+---+ package Foswiki::Plugins::DigestPlugin
+
+base class to hook into the foswiki core
+
+=cut
+
 use strict;
 use warnings;
 
@@ -23,22 +31,22 @@ use Digest ();
 use MIME::Base64 ();
 use Encode ();
 
-our $VERSION = '2.00';
-our $RELEASE = '08 Mar 2016';
+our $VERSION = '2.11';
+our $RELEASE = '%$RELEASE%';
 our $SHORTDESCRIPTION = 'Calculate a message digest, i.e. MD5 or BASE64';
+our $LICENSECODE = '%$LICENSECODE%';
 our $NO_PREFS_IN_TOPIC = 1;
 
 use constant TRACE => 0; # toggle me
 
-###############################################################################
-sub writeDebug {
-  return unless TRACE;
-  print STDERR "- DigestPlugin - " . $_[0] . "\n";
-  #Foswiki::Func::writeDebug("- DigestPlugin - $_[0]");
-}
+=begin TML
 
+---++ initPlugin($topic, $web, $user) -> $boolean
 
-###############################################################################
+initialize the plugin, automatically called during the core initialization process
+
+=cut
+
 sub initPlugin {
 
   Foswiki::Func::registerTagHandler('DIGEST', \&handleDIGEST);
@@ -47,7 +55,14 @@ sub initPlugin {
   return 1;
 }
 
-###############################################################################
+=begin TML
+
+---++ handleDIGEST($session, $params, $topic, $web) -> $result
+
+handles the =%DIGEST= macro
+
+=cut
+
 sub handleDIGEST {
   my ($session, $params, $topic, $web) = @_;
 
@@ -59,8 +74,9 @@ sub handleDIGEST {
   my $factory = Digest->new($type);
 
   $data = Foswiki::Func::expandCommonVariables($data, $topic, $web)
-    if expandVariables(\$data, $web, $topic);
+    if _expandVariables(\$data, $web, $topic);
 
+  $data = Encode::encode($Foswiki::cfg{Site}{CharSet}, $data);
   $factory->add($data);
 
   if ($output eq 'hex') {
@@ -73,31 +89,36 @@ sub handleDIGEST {
     $digest = $factory->hexdigest;
   }
 
-  #writeDebug("digest of '$data' is '$digest'");
+  #_writeDebug("digest of '$data' is '$digest'");
 
   return $digest;
 }
 
-###############################################################################
+=begin TML
+
+---++ handleBASE64($session, $params, $topic, $web) -> $result
+
+handles the =%BASE64= macro
+
+=cut
+
 sub handleBASE64 {
   my ($session, $params, $topic, $web) = @_;
 
   my $data = $params->{_DEFAULT} || '';
 
   $data = Foswiki::Func::expandCommonVariables($data, $topic, $web)
-    if expandVariables(\$data, $web, $topic);
+    if _expandVariables(\$data, $web, $topic);
 
   $data = Encode::encode($Foswiki::cfg{Site}{CharSet}, $data);
   $data = MIME::Base64::encode($data);
-
   $data =~ s/\n//g;
 
   return $data;
 }
 
-
-###############################################################################
-sub expandVariables {
+### static helpers ####
+sub _expandVariables {
   my ($text, $web, $topic, %params) = @_;
 
   my $found = 0;
@@ -105,7 +126,7 @@ sub expandVariables {
   foreach my $key (keys %params) {
     if($$text =~ s/\$$key\b/$params{$key}/g) {
       $found = 1;
-      #writeDebug("expanding $key->$params{$key}");
+      #_writeDebug("expanding $key->$params{$key}");
     }
   }
   $found = 1 if $$text =~ s/\$perce?nt/\%/go;
@@ -115,6 +136,11 @@ sub expandVariables {
   $found = 1 if $$text =~ s/\$dollar/\$/go;
 
   return $found;
+}
+
+sub _writeDebug {
+  return unless TRACE;
+  print STDERR "- DigestPlugin - " . $_[0] . "\n";
 }
 
 1;

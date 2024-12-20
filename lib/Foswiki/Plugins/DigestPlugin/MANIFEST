@@ -1,2 +1,5 @@
+!noci
 data/System/DigestPlugin.txt 0644
+lib/Foswiki/Plugins/DigestPlugin/DEPENDENCIES 0644
+lib/Foswiki/Plugins/DigestPlugin/MANIFEST 0644
 lib/Foswiki/Plugins/DigestPlugin.pm 0644

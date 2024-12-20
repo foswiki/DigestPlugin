@@ -1,8 +1,8 @@
 *.swp
-DigestPlugin.md5
-DigestPlugin.sha1
-DigestPlugin.tgz
-DigestPlugin.txt
-DigestPlugin.zip
-DigestPlugin_installer
-DigestPlugin_installer.pl
+/DigestPlugin.md5
+/DigestPlugin.sha1
+/DigestPlugin.tgz
+/DigestPlugin.txt
+/DigestPlugin.zip
+/DigestPlugin_installer
+/DigestPlugin_installer.pl

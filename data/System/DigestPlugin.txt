@@ -28,6 +28,7 @@
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+|  20 Dec 2024 | improved perl documentation |
 |  08 Mar 2016 | added BASE64 macro |
 |  23 Apr 2014 | fixed use of digest of different type on the same page |
 |  17 Nov 2009 | initial public release |
@@ -36,7 +37,7 @@
 
 %META:FORM{name="PackageForm"}%
 %META:FIELD{name="Author" title="Author" value="Michael Daum"}%
-%META:FIELD{name="Copyright" title="Copyright" value="2008-2016, Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Copyright" title="Copyright" value="2008-2024, Michael Daum"}%
 %META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
 %META:FIELD{name="Home" title="Home" value="Foswiki:Extensions/%TOPIC%"}%
 %META:FIELD{name="License" title="License" value="[[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]]"}%
